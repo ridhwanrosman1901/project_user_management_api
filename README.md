@@ -7,7 +7,9 @@ User Management API is a simple RESTful API built with Express.js. It provides e
 ## Features
 
 - **Root Route (`/`):** Provides a simple message.
+
 - **Classmates Route (`/classmates`):** Returns a list of classmates with their IDs and age.
+
 - **Mock Users Route (`/api/users`):** Retrieves a list of mock users with support for filtering by query parameters.
 - **User by ID Route (`/api/users/:id`):** Retrieves a single user by ID.
 - **POST Request (`/api/users`):** Adds a new user to the mock user list.
@@ -17,7 +19,7 @@ User Management API is a simple RESTful API built with Express.js. It provides e
 
 1. Clone the repository:
    ```bash
-   git clone <https://github.com/ridhwanrosman1901/project_user_management_api.git>
+   git clone https://github.com/ridhwanrosman1901/project_user_management_api.git
 
 2. Navigate to the project directory:
    ```bash
@@ -34,11 +36,17 @@ User Management API is a simple RESTful API built with Express.js. It provides e
    node index.js
 
 2. Open your web browser or use a tool like Postman to interact with the API:
+
 **- Root Route: 'http://localhost:5000/'**
+
 **- Classmates Route: 'http://localhost:5000/classmates'**
+
 **- Mock Users Route: 'http://localhost:5000/api/users'**
+
 **- User by ID Route: 'http://localhost:5000/api/users/:id'**
+
 **- Filter Mock Users: 'http://localhost:5000/api/users?filter=name&value=John'**
+
 
 ## API Endpoints
 
