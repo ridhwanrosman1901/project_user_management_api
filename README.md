@@ -43,33 +43,46 @@ User Management API is a simple RESTful API built with Express.js. It provides e
 ## API Endpoints
 
 **1. Root Route**
+
 **- GET '/'**
-    - **Response: '{ "message": "list of classmate names and age and id" }'**
+    
+   **-Response: '{ "message": "list of classmate names and age and id" }'**
 
 **2. Classmates Route**
+
 **- GET '/classmates'**
-    - **Response:** JSON array of classmates with **'id'**, **'name'**, and **'age'** fields.
+   
+   **-Response:** JSON array of classmates with **'id'**, **'name'**, and **'age'** fields.
 
 **3. Mock Users Route**
+
 **- Get '/api/users'**
-    **- Query Parameters:**
+    
+   **- Query Parameters:**
         **- 'filter':** Field to filter (e.g. **'name'**).
         **- 'value':** Value to filter by.
-    **- Response:** JSON array of mock users.
+    
+   **- Response:** JSON array of mock users.
 
 **4. User by ID Route**
+
 **- GET '/api/users/:id'**
-    **- Response:** JSON object of the user with the specified ID.
+    
+   **- Response:** JSON object of the user with the specified ID.
 
 **5. POST Request**
+
 **- POST '/api/users'**
     **- Request Body:** JSON object with user data (e.g., **'{ "name": "John", "email": "john@example.com" }'**).
-    **- Response:** JSON object of the newly created user.
+    
+   **- Response:** JSON object of the newly created user.
 
 **6. PuT Request**
+
 **- PUT '/api/users/:id'**
     **- Request Body:** JSON object with updated user data.
-    **- Response:** HTTP status code **'200 OK'** on success.
+    
+   **- Response:** HTTP status code **'200 OK'** on success.
 
 ## License
 
