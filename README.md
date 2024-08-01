@@ -2,83 +2,68 @@
 
 ## Description
 
-User Management API is a simple RESTful API built with Express.js. It provides endpoints to manage a list of classmates and mock users. This project demonstrates basic CRUD operations including filtering and handling JSON data.
+This is a simple Express.js application that provides a RESTful API for managing users. It includes endpoints to create, read, update, partially update, and delete users. The application also includes middleware for logging requests and checking for an authorization header.
 
 ## Features
 
-- **Root Route (`/`):** Provides a simple message.
-- **Classmates Route (`/classmates`):** Returns a list of classmates with their IDs and age.
-- **Mock Users Route (`/api/users`):** Retrieves a list of mock users with support for filtering by query parameters.
-- **User by ID Route (`/api/users/:id`):** Retrieves a single user by ID.
-- **POST Request (`/api/users`):** Adds a new user to the mock user list.
-- **PUT Request (`/api/users/:id`):** Updates an existing user’s data by ID.
+- **Logging Middleware**: Logs HTTP methods and URLs for each request.
 
-## Installation
+- **Authorization Middleware**: Checks for the presence of an Authorization header.
 
-1. Clone the repository:
-   ```bash
-   git clone <https://github.com/ridhwanrosman1901/project_user_management_api.git>
+- **Validation and Sanitization**: Validates and sanitizes user input for POST requests.
 
-2. Navigate to the project directory:
-   ```bash
-   cd projectone
+- **CRUD Operations**: Supports Create, Read, Update, Partial Update, and Delete operations for users.
 
-3. Install dependencies::
-   ```bash
-   npm install
+- **Query Filtering**: Allows filtering of users based on query parameters.
 
-## Usage
+## Endpoints
 
-1. Start the server:
-   ```bash
-   node index.js
+### Root Route
 
-2. Open your web browser or use a tool like Postman to interact with the API:
-**- Root Route: 'http://localhost:5000/'**
-**- Classmates Route: 'http://localhost:5000/classmates'**
-**- Mock Users Route: 'http://localhost:5000/api/users'**
-**- User by ID Route: 'http://localhost:5000/api/users/:id'**
-**- Filter Mock Users: 'http://localhost:5000/api/users?filter=name&value=John'**
+- **GET /**: Returns a message about the list of classmates.
 
-## API Endpoints
+### Classmates Route
 
-**1. Root Route**
-**- GET '/'**
-    - **Response: '{ "message": "list of classmate names and age and id" }'**
+- **GET /classmates**: Returns a list of classmates with their ID, name, age, and email.
 
-**2. Classmates Route**
-**- GET '/classmates'**
-    - **Response:** JSON array of classmates with **'id'**, **'name'**, and **'age'** fields.
+### User Management
 
-**3. Mock Users Route**
-**- Get '/api/users'**
-    **- Query Parameters:**
-        **- 'filter':** Field to filter (e.g. **'name'**).
-        **- 'value':** Value to filter by.
-    **- Response:** JSON array of mock users.
+- **POST /api/users**: Creates a new user. Requires name (minimum 3 characters) and email (valid email).
 
-**4. User by ID Route**
-**- GET '/api/users/:id'**
-    **- Response:** JSON object of the user with the specified ID.
+    **Request Body Example**:
 
-**5. POST Request**
-**- POST '/api/users'**
-    **- Request Body:** JSON object with user data (e.g., **'{ "name": "John", "email": "john@example.com" }'**).
-    **- Response:** JSON object of the newly created user.
+'''json
+{
+    "name": "Ridhwan Rosman"
+    "email": "ridhwan@example.com"
+}
+'''
 
-**6. PuT Request**
-**- PUT '/api/users/:id'**
-    **- Request Body:** JSON object with updated user data.
-    **- Response:** HTTP status code **'200 OK'** on success.
+- **GET /api/users**: Retrieves the list of users. Supports query parameters for filtering.
 
-## License
+    **Query Parameters**:
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+    -**filter**: Field to filter by (e.g., name, email).
 
-## Contributing
+    -**value**: Value to filter for.
 
-If you have suggestions or improvements, please feel free to open an issue or submit a pull request.
+- **GET /api/users**: Retrieves a user ID.
 
-## Contact
+    **Path Parameter**:
 
-For any inquiries, please reach out to me.
+    - **id**: The ID of the user.
+
+- **PUT /api/users**: Updates a user by ID.
+
+    **Path Parameter**:
+
+    -**id**: The ID of the user.
+
+    **Request Body Example**:
+
+'''json
+{
+    "name":"Jane Doe",
+    "email":"jan@example.com"
+}
+'''
